@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navya Resume Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <section class="screen screen-landing active" id="landingScreen">
+      <div class="landing-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Navya Resume Builder</span>
+          <h1>Build your professional resume in minutes.</h1>
+          <p>Create modern resumes with elegant templates, instant preview, and smart resume flow.</p>
+          <div class="hero-buttons">
+            <button class="button button-primary" id="getStartedBtn">Get Started</button>
+            <button class="button button-secondary" id="loginBtn">Login</button>
+            <button class="button button-outline" id="signupBtn">Sign Up</button>
+          </div>
+        </div>
+
+        <div class="hero-card glass">
+          <div class="hero-card-header">
+            <span class="badge">Resume SaaS</span>
+            <span class="badge badge-alt">Drag &amp; Build</span>
+          </div>
+          <div class="hero-preview">
+            <div class="hero-preview-line"></div>
+            <div class="hero-preview-block"></div>
+            <div class="hero-preview-block short"></div>
+            <div class="hero-preview-block"></div>
+          </div>
+          <p>Welcome to a polished resume experience with interactive sections and premium styling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen-auth" id="authScreen">
+      <div class="auth-layout">
+        <div class="auth-panel glass">
+          <h2>Welcome back</h2>
+          <p>Login to continue building your resume or create a new account and get started.</p>
+          <div class="auth-steps">
+            <div class="auth-step active">1</div>
+            <div class="auth-step">2</div>
+            <div class="auth-step">3</div>
+          </div>
+        </div>
+
+        <div class="auth-card glass">
+          <div class="auth-toggle">
+            <button type="button" class="auth-tab active" id="loginTab">Login</button>
+            <button type="button" class="auth-tab" id="signupTab">Sign Up</button>
+          </div>
+
+          <form id="authForm" class="auth-form">
+            <div class="form-row">
+              <label for="authEmail">Email</label>
+              <input id="authEmail" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-row">
+              <label for="authPassword">Password</label>
+              <input id="authPassword" type="password" placeholder="Enter password" required />
+            </div>
+            <div class="form-row hidden" id="confirmPasswordRow">
+              <label for="authConfirmPassword">Confirm Password</label>
+              <input id="authConfirmPassword" type="password" placeholder="Confirm password" />
+            </div>
+            <div class="form-meta">
+              <label class="checkbox-label"><input id="rememberMe" type="checkbox" /> Remember me</label>
+              <a href="#" id="forgotPassword">Forgot password?</a>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="button button-primary" id="authSubmit">Login</button>
+            </div>
+            <p class="auth-switch-text" id="authSwitchText">New here? <span id="authSwitchAction">Create account</span></p>
+            <p class="auth-message" id="authMessage"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen-builder" id="builderScreen">
+      <div class="builder-layout">
+        <div class="builder-header glass">
+          <div>
+            <p class="eyebrow small">Resume Builder</p>
+            <h2>Interactive Resume Flow</h2>
+            <p>Complete the steps to generate your professional resume.</p>
+          </div>
+          <div class="builder-badges">
+            <span class="badge">Saved locally</span>
+            <span class="badge badge-alt">Live preview</span>
+          </div>
+        </div>
+
+        <div class="builder-content">
+          <section class="builder-form glass">
+            <div class="step-header">
+              <div>
+                <span class="eyebrow small">Step</span>
+                <h3 id="stepTitle">Personal Information</h3>
+              </div>
+              <div class="progress-bar-wrapper">
+                <span id="stepCounter">1 / 9</span>
+                <progress id="formProgress" value="0" max="100"></progress>
+              </div>
+            </div>
+
+            <div class="step-content" id="stepContent">
+              <div class="step-panel active" data-step="1">
+                <div class="row-grid">
+                  <div class="form-row">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" type="text" placeholder="Navya Sri" />
+                  </div>
+                  <div class="form-row">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="navya@example.com" />
+                  </div>
+                  <div class="form-row">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" type="tel" placeholder="(123) 456-7890" />
+                  </div>
+                  <div class="form-row">
+                    <label for="location">Location</label>
+                    <input id="location" type="text" placeholder="Bangalore, India" />
+                  </div>
+                  <div class="form-row photo-upload">
+                    <label for="photoUpload">Profile Photo</label>
+                    <input id="photoUpload" type="file" accept="image/*" />
+                    <div class="photo-preview" id="photoPreview">Add photo</div>
+                  </div>
+                  <div class="form-row">
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input id="linkedin" type="url" placeholder="https://linkedin.com/in/navya" />
+                  </div>
+                  <div class="form-row">
+                    <label for="github">GitHub Profile</label>
+                    <input id="github" type="url" placeholder="https://github.com/navya" />
+                  </div>
+                  <div class="form-row">
+                    <label for="portfolio">Portfolio Link</label>
+                    <input id="portfolio" type="url" placeholder="https://portfolio.com" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-panel" data-step="2">
+                <div class="form-row">
+                  <label for="about">About Yourself</label>
+                  <textarea id="about" rows="4" placeholder="Describe your strengths and background."></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="objective">Career Objective</label>
+                  <textarea id="objective" rows="3" placeholder="State your career goal clearly."></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="bio">Short Bio</label>
+                  <textarea id="bio" rows="3" placeholder="Write a short professional bio."></textarea>
+                </div>
+              </div>
+
+              <div class="step-panel" data-step="3">
+                <div class="section-top">
+                  <h4>Education</h4>
+                  <button type="button" class="button button-small" id="addEduBtn">Add Education</button>
+                </div>
+                <div id="educationList" class="repeat-list"></div>
+              </div>
+
+              <div class="step-panel" data-step="4">
+                <div class="form-row skill-entry">
+                  <label for="skillInput">Add Skills</label>
+                  <div class="skill-input-row">
+                    <input id="skillInput" type="text" placeholder="Type a skill and press Add" />
+                    <button type="button" class="button button-small" id="addSkillBtn">Add</button>
+                  </div>
+                </div>
+                <div id="skillsTags" class="tag-grid"></div>
+              </div>
+
+              <div class="step-panel" data-step="5">
+                <div class="section-top">
+                  <h4>Professional Experience</h4>
+                  <button type="button" class="button button-small" id="addExpBtn">Add Experience</button>
+                </div>
+                <div id="experienceList" class="repeat-list"></div>
+              </div>
+
+              <div class="step-panel" data-step="6">
+                <div class="section-top">
+                  <h4>Projects</h4>
+                  <button type="button" class="button button-small" id="addProjectBtn">Add Project</button>
+                </div>
+                <div id="projectList" class="repeat-list"></div>
+              </div>
+
+              <div class="step-panel" data-step="7">
+                <div class="section-top">
+                  <h4>Achievements</h4>
+                  <button type="button" class="button button-small" id="addAchievementBtn">Add Achievement</button>
+                </div>
+                <div id="achievementList" class="repeat-list"></div>
+              </div>
+
+              <div class="step-panel" data-step="8">
+                <div class="section-top">
+                  <h4>Internships</h4>
+                  <button type="button" class="button button-small" id="addInternshipBtn">Add Internship</button>
+                </div>
+                <div id="internshipList" class="repeat-list"></div>
+              </div>
+
+              <div class="step-panel" data-step="9">
+                <div class="form-row">
+                  <label for="languages">Languages</label>
+                  <input id="languages" type="text" placeholder="e.g. English, Hindi" />
+                </div>
+                <div class="form-row">
+                  <label for="hobbies">Hobbies</label>
+                  <input id="hobbies" type="text" placeholder="e.g. Writing, Design" />
+                </div>
+                <div class="form-row">
+                  <label for="volunteer">Volunteer Work</label>
+                  <textarea id="volunteer" rows="3" placeholder="Describe your volunteer experience."></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="publications">Publications</label>
+                  <textarea id="publications" rows="3" placeholder="List publications and articles."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="button button-outline" id="prevStepBtn">Back</button>
+              <button type="button" class="button button-primary" id="nextStepBtn">Next</button>
+            </div>
+          </section>
+
+          <aside class="builder-preview">
+            <div class="preview-panel glass">
+              <div class="preview-header">
+                <div>
+                  <p class="eyebrow small">Live Preview</p>
+                  <h3>Watch your resume build in real-time</h3>
+                </div>
+                <div class="preview-status">
+                  <span id="resumeCompletionLabel">0%</span>
+                  <progress id="resumeCompletion" value="0" max="100"></progress>
+                </div>
+              </div>
+
+              <div class="preview-wrapper template-modern" id="previewLive"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen-templates" id="templateScreen">
+      <div class="templates-layout">
+        <div class="templates-header glass">
+          <div>
+            <span class="eyebrow small">Templates</span>
+            <h2>Choose the resume style you love</h2>
+            <p>Select a professional layout and apply your details instantly.</p>
+          </div>
+          <button class="button button-outline" id="backToBuilder">Edit Details</button>
+        </div>
+
+        <div class="templates-grid" id="templateOptions">
+          <button class="template-card selected" data-template="modern">
+            <span class="template-name">Modern Professional</span>
+            <p>Sleek layout, minimal spacing, and structured sections.</p>
+          </button>
+          <button class="template-card" data-template="creative">
+            <span class="template-name">Creative Portfolio</span>
+            <p>Colorful palette, profile image, and bold headings.</p>
+          </button>
+          <button class="template-card" data-template="corporate">
+            <span class="template-name">Corporate Resume</span>
+            <p>Classic black and white design with formal typography.</p>
+          </button>
+          <button class="template-card" data-template="student">
+            <span class="template-name">Student Resume</span>
+            <p>Focus on education, projects, and bright accent colors.</p>
+          </button>
+          <button class="template-card" data-template="developer">
+            <span class="template-name">Developer Resume</span>
+            <p>Code-inspired style with skill badges and tech sections.</p>
+          </button>
+        </div>
+
+        <div class="final-preview glass">
+          <div class="final-preview-title">
+            <span class="eyebrow small">Final Resume</span>
+            <h3>Preview and export your professional resume</h3>
+          </div>
+          <div class="preview-wrapper template-modern" id="previewFinal"></div>
+          <div class="final-actions">
+            <button class="button button-secondary" id="printResume">Print Resume</button>
+            <button class="button button-primary" id="downloadResume">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
