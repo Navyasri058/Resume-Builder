@@ -93,3 +93,30 @@ Each template contains different:
 ---
 
 ## 📂 Project Structure
+Resume-builder/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── assets/
+│ ├── images/
+│ └── icons/
+│
+└── README.md
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Navyasri058/Resume-Builder.git
+
+MOVE-INTO-PROJECT-FILE
+cd Resume-builder
+
+RUN-FILE
+index.html
