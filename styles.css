@@ -111,6 +111,19 @@ button {
   margin-top: 28px;
 }
 
+.auth-nav,
+.builder-nav,
+.template-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.builder-nav {
+  justify-content: flex-end;
+}
+
 .button {
   cursor: pointer;
   border-radius: 999px;
@@ -634,8 +647,8 @@ button {
 }
 
 .templates-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 24px;
   align-items: center;
   border-radius: 36px;

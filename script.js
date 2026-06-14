@@ -176,7 +176,6 @@ function updateCurrentStep() {
   document.querySelectorAll('.step-panel').forEach((panel) => {
     panel.classList.toggle('active', Number(panel.dataset.step) === step);
   });
-  document.getElementById('prevStepBtn').disabled = step === 1;
   document.getElementById('nextStepBtn').textContent = step === 9 ? 'Choose Template' : 'Next';
   const progress = Math.round(((step - 1) / 8) * 100);
   document.getElementById('formProgress').value = progress;
@@ -191,9 +190,72 @@ function moveStep(direction) {
     }
     state.currentStep += 1;
   } else {
+    if (state.currentStep === 1) {
+      showScreen('authScreen');
+      return;
+    }
     state.currentStep -= 1;
   }
   updateCurrentStep();
+}
+
+function resetBuilderState() {
+  state.currentStep = 1;
+  state.template = 'modern';
+  state.personal = {
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    photo: '',
+    linkedin: '',
+    github: '',
+    portfolio: '',
+  };
+  state.summary = {
+    about: '',
+    objective: '',
+    bio: '',
+  };
+  state.education = [];
+  state.skills = [];
+  state.experience = [];
+  state.projects = [];
+  state.achievements = [];
+  state.internships = [];
+  state.additional = {
+    languages: '',
+    hobbies: '',
+    volunteer: '',
+    publications: '',
+  };
+  saveState();
+  populateForm();
+  renderSkillTags();
+  renderTemplateList();
+  renderPreview('previewLive');
+  renderPreview('previewFinal');
+  updateResumeCompletion();
+  updateCurrentStep();
+}
+
+function goHome() {
+  showScreen('landingScreen');
+}
+
+function goHomeLogin() {
+  setAuthMode('login');
+  showScreen('authScreen');
+}
+
+function editResume() {
+  showScreen('builderScreen');
+  updateCurrentStep();
+}
+
+function startNewResume() {
+  resetBuilderState();
+  showScreen('builderScreen');
 }
 
 function getElementValue(id) {
@@ -759,9 +821,16 @@ function bindActions() {
     }
   });
   document.getElementById('photoUpload').addEventListener('change', handlePhotoUpload);
+  document.getElementById('authHomeBtn').addEventListener('click', goHome);
+  document.getElementById('builderBackBtn').addEventListener('click', () => showScreen('authScreen'));
+  document.getElementById('builderHomeBtn').addEventListener('click', goHome);
   document.getElementById('backToBuilder').addEventListener('click', () => showScreen('builderScreen'));
+  document.getElementById('templateHomeBtn').addEventListener('click', goHome);
   document.getElementById('downloadResume').addEventListener('click', downloadResume);
   document.getElementById('printResume').addEventListener('click', printResume);
+  document.getElementById('editResume').addEventListener('click', editResume);
+  document.getElementById('startNewResume').addEventListener('click', startNewResume);
+  document.getElementById('homeLoginBtn').addEventListener('click', goHomeLogin);
 
   document.querySelectorAll('.template-card').forEach((card) => {
     card.addEventListener('click', () => selectTemplate(card.dataset.template));

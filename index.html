@@ -50,6 +50,9 @@
         </div>
 
         <div class="auth-card glass">
+          <div class="auth-nav">
+            <button type="button" class="button button-outline" id="authHomeBtn">Back to Home</button>
+          </div>
           <div class="auth-toggle">
             <button type="button" class="auth-tab active" id="loginTab">Login</button>
             <button type="button" class="auth-tab" id="signupTab">Sign Up</button>
@@ -94,6 +97,10 @@
             <span class="badge">Saved locally</span>
             <span class="badge badge-alt">Live preview</span>
           </div>
+        </div>
+        <div class="builder-nav">
+          <button type="button" class="button button-outline" id="builderBackBtn">Back</button>
+          <button type="button" class="button button-secondary" id="builderHomeBtn">Home</button>
         </div>
 
         <div class="builder-content">
@@ -268,7 +275,10 @@
             <h2>Choose the resume style you love</h2>
             <p>Select a professional layout and apply your details instantly.</p>
           </div>
-          <button class="button button-outline" id="backToBuilder">Edit Details</button>
+          <div class="template-actions">
+            <button class="button button-outline" id="backToBuilder">Back</button>
+            <button class="button button-secondary" id="templateHomeBtn">Home</button>
+          </div>
         </div>
 
         <div class="templates-grid" id="templateOptions">
@@ -302,7 +312,10 @@
           <div class="preview-wrapper template-modern" id="previewFinal"></div>
           <div class="final-actions">
             <button class="button button-secondary" id="printResume">Print Resume</button>
-            <button class="button button-primary" id="downloadResume">Download PDF</button>
+            <button class="button button-primary" id="downloadResume">Download Resume</button>
+            <button class="button button-outline" id="editResume">Edit Resume</button>
+            <button class="button button-outline" id="startNewResume">Start New Resume</button>
+            <button class="button button-secondary" id="homeLoginBtn">Home/Login Page</button>
           </div>
         </div>
       </div>
